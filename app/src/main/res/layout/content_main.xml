@@ -34,7 +34,11 @@
             android:layout_height="wrap_content"
             android:text="@{user.lastName}"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:onClick="onClickUpdateValue"
+            android:text="Update those guys"/>
+
 
     </LinearLayout>
 </layout>
-

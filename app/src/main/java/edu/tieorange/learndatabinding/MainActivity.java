@@ -10,19 +10,20 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import edu.tieorange.learndatabinding.databinding.ActivityMainBinding;
 import edu.tieorange.learndatabinding.databinding.ContentMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private User mUser;
-    private ContentMainBinding mBinding;
+    private ActivityMainBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.content_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mUser = new User("Bob", "Marley");
-        mBinding.setUser(mUser);
+        mBinding.contentMain.setUser(mUser);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -67,5 +68,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickUpdateValue(View view) {
+        mUser.setFirstName("Andrii");
+        mUser.setLastName("Kovalchuk");
     }
 }
